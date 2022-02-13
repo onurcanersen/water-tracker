@@ -1,0 +1,10 @@
+body {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+}

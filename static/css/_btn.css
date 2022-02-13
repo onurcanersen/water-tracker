@@ -1,0 +1,9 @@
+.glass-btn img, .bottle-btn img {
+    height: 50px;
+    width: 50px;
+}
+
+.delete-btn img {
+    height: 10px;
+    width: 10px;
+}

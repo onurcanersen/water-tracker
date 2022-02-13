@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %}Statistics{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4 rounded-bottom bg-light">
+        <input type="hidden" value="{{ dates }}" class="dates">
+        <input type="hidden" value="{{ amounts }}" class="amounts">
+        <canvas id="chart" width="400" height="400"></canvas>
+        <div class="logs mb-3">
+            {% if logs %}
+            {% for log in logs %}
+            <form action="" method="post">
+                <div class="row mt-1">
+                    <div class="col-6 d-flex align-items-center">{{ log.date }}</div>
+                    <div class="col-4 d-flex align-items-center">{{ log.amount }} ml</div>
+                    <div class="col-2 d-flex justify-content-end">
+                        <input type="hidden" name="id" value="{{ log.id }}">
+                        <button class="btn delete-btn" name="delete">
+                            <img src="{{ url_for('static', filename='icon/delete.svg') }}" alt="Delete">
+                        </button>
+                    </div>
+                </div>
+            </form>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-lg-4"></div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+{% endblock %}

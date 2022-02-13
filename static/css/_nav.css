@@ -1,0 +1,19 @@
+.nav {
+    display: flex;
+    justify-content: center;
+}
+
+.nav .nav-list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav .nav-list .nav-list-item {
+    margin: 7px;
+}
+
+.nav .nav-list .nav-list-item img {
+    height: 30px;
+    width: 30px;
+}

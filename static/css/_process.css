@@ -1,0 +1,25 @@
+.process {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #4287f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.process::before {
+    content: "";
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 175px;
+    height: 175px;
+    position: absolute;
+}
+
+.process .amount {
+    position: absolute;
+    color: #231c3d;
+    font-size: 30px;
+    font-weight: 700;
+}

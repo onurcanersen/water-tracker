@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4 shadow rounded-bottom bg-light">
+        <div class="d-flex justify-content-center mt-3 mb-3">
+            <div class="process">
+                <div class="amount">{{ total }}</div>
+            </div>
+            <input type="hidden" value="{{ total }}" class="total">
+            <input type="hidden" value="{{ target }}" class="target">
+        </div>
+        <form action="" method="post">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group d-flex">
+                        <button class="btn btn-outline-secondary flex-grow-1 glass-btn" name="add-glass">
+                            <img src="{{ url_for('static', filename='icon/glass.svg') }}" alt="Glass">
+                        </button>
+                        <span class="input-group-text">200 ml</span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group d-flex">
+                        <button class="btn btn-outline-secondary flex-grow-1 bottle-btn" name="add-bottle">
+                            <img src="{{ url_for('static', filename='icon/bottle.svg') }}" alt="Bottle">
+                        </button>
+                        <span class="input-group-text">500 ml</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-lg-12">
+                    <div class="input-group">
+                        <input type="number" name="amount" class="form-control" placeholder="Amount" aria-label="Amount">
+                        <span class="input-group-text">ml</span>
+                        <button class="btn btn-outline-secondary" name="add-custom">Add</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="logs mb-3">
+            {% if logs %}
+            {% for log in logs %}
+            <form action="" method="post">
+                <div class="row mt-1">
+                    <div class="col-6 d-flex align-items-center">{{ log.date }}</div>
+                    <div class="col-4 d-flex align-items-center">{{ log.amount }} ml</div>
+                    <div class="col-2 d-flex justify-content-end">
+                        <input type="hidden" name="id" value="{{ log.id }}">
+                        <button class="btn delete-btn" name="delete">
+                            <img src="{{ url_for('static', filename='icon/delete.svg') }}" alt="Delete">
+                        </button>
+                    </div>
+                </div>
+            </form>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-lg-4"></div>
+</div>
+
+<script src="{{ url_for('static', filename='js/process.js') }}"></script>
+{% endblock %}
